@@ -1,61 +1,91 @@
 <!doctype html>
-<html lang="ko" data-theme="light">
+<html lang="ko">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="6년 차 테스트 엔지니어 이원혁의 QA 포트폴리오">
-  <title>이원혁 — Test Engineer / QA</title>
-  <style>
-    :root{--bg:#f7f7f5;--surface:#ededeb;--text:#11120f;--muted:#686a62;--line:#1113;--acid:#ffe34f;--purple:#7f8cff;--orange:#ff8957}
-    [data-theme=dark]{--bg:#10110f;--surface:#191a17;--text:#f2f3ed;--muted:#a1a39a;--line:#f2f3ed2b}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,"Apple SD Gothic Neo",sans-serif;transition:.3s}a{color:inherit;text-decoration:none}button{font:inherit}
-    nav{height:76px;padding:0 clamp(24px,5vw,80px);display:flex;align-items:center;justify-content:space-between;position:fixed;inset:0 0 auto;z-index:20;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(16px)}
-    .brand{display:flex;align-items:center;font-size:14px;letter-spacing:.02em}.brand b{font-weight:800}
-    .links{display:flex;gap:34px;font-size:11px;letter-spacing:.13em;text-transform:uppercase}.links a:hover{color:var(--acid)}.theme{background:none;color:inherit;border:1px solid var(--line);width:38px;height:38px;cursor:pointer}
-    .hero{min-height:100svh;padding:clamp(125px,16vh,190px) clamp(24px,5vw,80px) 44px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center}.hero:after{content:"";position:absolute;z-index:0;right:0;top:76px;bottom:0;width:33.333%;background:var(--acid);opacity:.94}
-    .eye{position:relative;z-index:1;font:10px monospace;letter-spacing:.15em}.eye:before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--acid);margin-right:10px;box-shadow:0 0 16px var(--acid)}
-    h1,h2{position:relative;z-index:2;font-weight:900;letter-spacing:-.065em;line-height:.88}h1{font-size:clamp(52px,7.6vw,122px);margin:30px 0;max-width:min(1280px,88%)}em{font-style:normal;color:#e4bf00}[data-theme=dark] em{color:var(--acid)}
-    .hero-bottom{position:relative;z-index:2;width:min(760px,58vw)}.hero-bottom p{margin:8px 0 0;color:var(--muted);font-size:clamp(15px,1.1vw,18px);line-height:1.75}.hero-bottom strong{color:var(--text)}
-    .meta{position:absolute;bottom:25px;left:5vw;display:flex;color:var(--muted);font:9px monospace;letter-spacing:.15em}
-    section{padding:clamp(86px,10vw,150px) clamp(24px,5vw,80px)}.label{font:10px monospace;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}.about{border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 3fr;gap:4vw}.about h2,.head h2,.resume h2,.contact h2{font-size:clamp(42px,6.2vw,96px);margin:0}.about .copy{max-width:760px;margin:48px 0 0;color:var(--muted);font-size:clamp(15px,1.1vw,18px);line-height:1.8}
-    .skills{background:var(--surface);display:grid;grid-template-columns:1fr 2fr;gap:8vw}.skills h3{font-size:clamp(34px,3.6vw,54px);letter-spacing:-.05em}.skills p{color:var(--muted);line-height:1.65}.skill{margin:0 0 27px}.skill div{display:grid;grid-template-columns:38px 1fr auto;margin-bottom:10px}.skill small,.skill strong{font:10px monospace}.skill small{color:var(--muted)}.bar{display:block;height:3px;background:var(--line)}.bar i{display:block;background:#e7c400;height:100%}
-    .head{display:grid;grid-template-columns:1fr 3fr;margin-bottom:80px}.timeline{margin-left:25%;border-top:1px solid var(--line)}.job{display:grid;grid-template-columns:1fr 2.4fr;padding:42px 0;border-bottom:1px solid var(--line)}.period{font:10px monospace;color:var(--muted)}.job h3{font-size:30px;margin:8px 0 18px}.company{font-size:11px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}.detail{color:var(--muted);line-height:1.7}.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}.tags span{border:1px solid var(--line);border-radius:30px;padding:7px 11px;font:9px monospace}
-    .projects{background:#111;color:#f2f3ed;padding-left:0;padding-right:0}.projects .head{padding:0 clamp(24px,5vw,80px)}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid #fff2}.card{aspect-ratio:1/1;min-height:0;padding:clamp(24px,3vw,46px);background:#191a17;display:flex;flex-direction:column;border-right:1px solid #fff2}.card:last-child{border:0}.art{height:28%;position:relative;display:grid;place-items:center;margin:10px}.art i{position:absolute;width:clamp(70px,8vw,120px);height:clamp(70px,8vw,120px);border:1px solid;border-radius:50%;opacity:.65}.art i:first-child{transform:translateX(-28px)}.art i:last-child{transform:translateX(28px)}.lime{background:#2947ed}.violet{background:#ffe34f;color:#111}.orange{background:#ececec;color:#111}.lime .art{color:#fff}.violet .art{color:#111}.orange .art{color:#2947ed}.card h3{font-size:clamp(24px,2.4vw,38px);margin:12px 0}.card p{color:inherit;opacity:.7;line-height:1.6}.metric{margin-top:auto;border-top:1px solid currentColor;padding-top:20px;display:flex;gap:12px;align-items:end}.metric b{font-size:clamp(38px,4vw,62px)}.metric span{font:9px monospace;color:inherit;opacity:.7}
-    .tools{overflow:hidden;padding-left:0;padding-right:0}.tools .label{padding:0 5vw}.marquee{margin-top:55px;border-block:1px solid var(--line);padding:24px 0;white-space:nowrap;overflow:hidden}.marquee div{width:max-content;font-size:clamp(30px,5vw,68px);font-weight:900;animation:move 22s linear infinite}.marquee i{display:inline-block;width:11px;height:11px;background:var(--acid);margin:0 24px}@keyframes move{to{transform:translateX(-35%)}}
-    .resume{background:var(--acid);color:#111;display:grid;grid-template-columns:2fr 1fr;gap:10vw;align-items:center}.resume em{color:#111}.resume p{color:#111a;line-height:1.7}.button,.contact a{display:flex;justify-content:space-between;background:#111;color:#fff;padding:18px 22px;text-transform:uppercase;font:11px monospace;margin-top:28px;border:0;width:100%;cursor:pointer}
-    .contact{background:#10110f;color:#f2f3ed}.contact h2{font-size:clamp(54px,9vw,138px);margin:70px 0}.contact-row{display:grid;grid-template-columns:1fr 1fr;gap:15vw;align-items:center}.contact-row p{color:#a1a39a;line-height:1.7}.contact footer{margin-top:110px;padding-top:25px;border-top:1px solid #ffffff2a;display:flex;justify-content:space-between;font:9px monospace;color:#999}
-    .top-button{position:fixed;right:clamp(18px,3vw,46px);bottom:clamp(18px,3vw,42px);z-index:30;width:56px;height:56px;border:1px solid var(--line);border-radius:50%;background:var(--text);color:var(--bg);display:grid;place-items:center;cursor:pointer;font:700 11px monospace;letter-spacing:.08em;opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .25s,transform .25s,visibility .25s}.top-button.show{opacity:1;visibility:visible;transform:translateY(0)}.top-button:hover{background:var(--acid);color:#111}
-    @media(max-width:800px){nav{height:64px;padding:0 18px}.brand{font-size:13px;white-space:nowrap}.links{gap:14px;margin-left:auto;margin-right:12px}.links a:nth-child(2),.links a:nth-child(3){display:none}.hero{padding-top:110px;min-height:100svh}.hero:after{top:64px;width:38%;opacity:.22}.hero h1{font-size:15vw;max-width:100%}.hero-bottom{width:min(100%,560px)}.hero-bottom p{margin:0;font-size:14px}.about,.skills,.head,.resume{grid-template-columns:1fr}.about{gap:45px}.about .copy{margin:34px 0 0;font-size:14px}.about .copy br{display:none}.head h2{margin-top:30px}.timeline{margin-left:0}.job{grid-template-columns:1fr;gap:20px}.cards{grid-template-columns:1fr}.card{aspect-ratio:auto;min-height:480px;border-right:0;border-bottom:1px solid #fff3}.contact-row{grid-template-columns:1fr;gap:20px}.contact footer{flex-direction:column;gap:14px}.top-button{width:50px;height:50px}}
-    @media print{nav,.hero,.projects,.tools,.contact{display:none}.about,.skills,.experience,.resume{padding:35px;background:#fff;color:#111}.timeline{margin:0}}
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="모빌리티와 예약 플랫폼의 품질을 설계하고 자동화하는 테스트 엔지니어 이원혁의 이력서">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:title" content="이원혁 | Test Engineer">
+  <meta property="og:description" content="요구사항 분석부터 API·로그 검증, 모바일 자동화까지 품질 리스크를 구조적으로 해결합니다.">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://gm01.github.io/">
+  <title>이원혁 | Test Engineer</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"이원혁","jobTitle":"Test Engineer","email":"mailto:bebebe97@naver.com","url":"https://gm01.github.io/","sameAs":["https://github.com/gm01"]}</script>
 </head>
 <body>
-  <nav><a class="brand" href="#top"><b>이원혁</b></a><div class="links"><a href="#about">About</a><a href="#experience">Experience</a><a href="#work">Work</a><a href="#contact">Contact</a></div><button class="theme" aria-label="테마 변경" onclick="toggleTheme()">☼</button></nav>
-  <header class="hero" id="top"><div class="eye">6 YEARS OF PRODUCT QUALITY</div><h1>I FIND THE <em>GAPS</em><br>BEFORE USERS DO.</h1><div class="hero-bottom"><p>품질 리스크를 선제적으로 통제하고 기술 기반의 효율화를 주도하는 <strong>6년 차 테스트 엔지니어 이원혁입니다.</strong></p></div><div class="meta"><span>SEOUL, SOUTH KOREA</span></div></header>
-  <section class="about" id="about"><p class="label">01 / About</p><div><h2>QUALITY ISN'T A GATE.<br>IT'S A <em>SHARED LANGUAGE.</em></h2><p class="copy">기획 초기부터 요구사항의 충돌과 예외 흐름을 분석해 결함을 조기에 차단합니다.<br>현상만 전달하는 데 그치지 않고 API 응답과 서버 로그, 비즈니스 영향도를 근거로 개발자·기획자와 실질적인 해결책을 논의합니다.</p></div></section>
-  <section class="skills"><div><p class="label">WHAT I BRING</p><h3>Complex systems.<br>Clear decisions.</h3><p>명세 기반·리스크 기반·탐색적 테스트를 결합하고 API와 자동화를 활용해 제품과 QA 프로세스를 함께 개선합니다.</p></div><div>
-    <div class="skill"><div><small>01</small><b>Risk-based Testing</b><strong>94%</strong></div><span class="bar"><i style="width:94%"></i></span></div>
-    <div class="skill"><div><small>02</small><b>Shift-Left Strategy</b><strong>92%</strong></div><span class="bar"><i style="width:92%"></i></span></div>
-    <div class="skill"><div><small>03</small><b>API Testing</b><strong>91%</strong></div><span class="bar"><i style="width:91%"></i></span></div>
-    <div class="skill"><div><small>04</small><b>Mobile Platform QA</b><strong>93%</strong></div><span class="bar"><i style="width:93%"></i></span></div>
-    <div class="skill"><div><small>05</small><b>Selenium / Python</b><strong>82%</strong></div><span class="bar"><i style="width:82%"></i></span></div>
-    <div class="skill"><div><small>06</small><b>Root-cause Analysis</b><strong>90%</strong></div><span class="bar"><i style="width:90%"></i></span></div>
-  </div></section>
-  <section class="experience" id="experience"><div class="head"><p class="label">02 / Experience</p><h2>BUILT THROUGH<br><em>REAL RELEASES.</em></h2></div><div class="timeline">
-    <article class="job"><div class="period">2025.11 — PRESENT</div><div><div class="company">DK Techin · Kakao Mobility</div><h3>Mobility Platform / Driver & Picker QA</h3><p class="detail">공급자향 앱 서비스 검증과 QA 테스트 인프라 효율화를 담당합니다. Swagger·Postman으로 백엔드 API를 독립 검증하고 서버 로그로 근본 원인을 추적하며, 더미 데이터 생성 및 어드민 로그인 자동화를 구현했습니다.</p><div class="tags"><span>REST API</span><span>SERVER LOG</span><span>AUTOMATION</span></div></div></article>
-    <article class="job"><div class="period">2024.11 — 2025.11</div><div><div class="company">DK Techin · Kakao Mobility</div><h3>Mobility Platform Common QA</h3><p class="detail">약 1,000건의 이슈와 8,000건의 TC 수행을 리딩했습니다. 3,000건 이상의 TC를 직접 설계하고 JIRA 이슈 중복률을 50% 줄였으며, 기획 초기 스펙 분석으로 QA 일정을 약 15% 단축했습니다.</p><div class="tags"><span>8,000+ TC</span><span>JIRA</span><span>QA LEADING</span></div></div></article>
-    <article class="job"><div class="period">2023.07 — 2024.11</div><div><div class="company">DK Techin</div><h3>Leisure Reservation System QA</h3><p class="detail">오픈 QA 프로젝트의 첫 투입 인력으로 테스트 환경과 프로세스를 정립했습니다. 약 2,000건의 TC를 설계하고 10,000건을 수행했으며, 200건 이상의 결함을 등록해 주요 장애를 릴리즈 전에 차단했습니다.</p></div></article>
-    <article class="job"><div class="period">2020.07 — 2023.07</div><div><div class="company">DK Techin · Kakao Mobility</div><h3>Driver Service Platform QA</h3><p class="detail">호출-배차-정산을 포함한 서비스 전반과 다양한 디바이스·운영체제 호환성을 검증했습니다. 1,000건 이상의 TC를 설계하고 13,000건 이상 수행했습니다.</p></div></article>
-  </div></section>
-  <section class="projects" id="work"><div class="head"><p class="label">03 / Selected Work</p><h2>QUALITY THAT<br><em>MOVES THE METRIC.</em></h2></div><div class="cards">
-    <article class="card lime"><div class="art"><i></i><i></i><i></i></div><h3>Mobility QA at Scale</h3><p>기획 초기부터 조건 충돌과 예외 흐름을 분석하고 핵심 리스크에 검증을 집중했습니다.</p><div class="metric"><b>15%</b><span>QA SCHEDULE REDUCED</span></div></article>
-    <article class="card violet"><div class="art"><i></i><i></i><i></i></div><h3>Test Design & Execution</h3><p>3,000건 이상의 TC를 설계하고 8,000건을 수행하며 변경 이력을 테스트 자산으로 만들었습니다.</p><div class="metric"><b>8K+</b><span>TEST CASES EXECUTED</span></div></article>
-    <article class="card orange"><div class="art"><i></i><i></i><i></i></div><h3>QA Engineering</h3><p>API 검증, 서버 로그 분석, Selenium과 Python 자동화로 반복 작업과 이슈 중복을 줄였습니다.</p><div class="metric"><b>50%</b><span>FEWER DUPLICATE ISSUES</span></div></article>
-  </div></section>
-  <section class="tools"><p class="label">04 / Toolbox</p><div class="marquee"><div>POSTMAN <i></i> SWAGGER <i></i> JIRA <i></i> SELENIUM <i></i> PYTHON <i></i> REST API <i></i> SERVER LOG <i></i> SHIFT-LEFT <i></i></div></div></section>
-  <section class="resume"><div><p class="label">05 / Resume</p><h2>THE FULL<br><em>STORY.</em></h2></div><div><h3>더 자세한 경험이 궁금하다면</h3><p>프로젝트별 역할과 성과, 기술 활용 사례를 인쇄하거나 PDF로 저장할 수 있습니다.</p><button class="button" onclick="window.print()">SAVE AS PDF <span>↗</span></button></div></section>
-  <section class="contact" id="contact"><p class="label">06 / Contact</p><h2>LET'S BUILD<br>SOMETHING <em>RELIABLE.</em></h2><div class="contact-row"><p>제품 리스크를 더 일찍 발견하고 반복 검증을 더 효율적으로 만들고 싶다면 이야기를 나누고 싶습니다.</p><a href="mailto:bebebe97@naver.com">START A CONVERSATION <span>↗</span></a></div><footer><span>© 2026 LEE WONHYEOK</span></footer></section>
-  <button class="top-button" type="button" aria-label="페이지 맨 위로 이동" onclick="window.scrollTo({top:0,behavior:'smooth'})">TOP ↑</button>
-  <script>function toggleTheme(){const e=document.documentElement,d=e.dataset.theme==="dark";e.dataset.theme=d?"light":"dark";document.querySelector(".theme").textContent=d?"☾":"☼"}const topButton=document.querySelector(".top-button");function syncTopButton(){topButton.classList.toggle("show",window.scrollY>window.innerHeight*.65)}window.addEventListener("scroll",syncTopButton,{passive:true});syncTopButton()</script>
+  <header class="site-header" aria-label="페이지 메뉴">
+    <a class="wordmark" href="#top">WONHYEOK LEE</a>
+    <nav><a href="#experience">Experience</a><a href="#engineering">Engineering</a><a href="#skills">Skills</a><button type="button" onclick="window.print()">PDF</button></nav>
+  </header>
+  <main class="container" id="top">
+    <section class="intro" aria-labelledby="intro-title">
+      <p class="kicker">TEST ENGINEER · QA AUTOMATION</p>
+      <h1 id="intro-title">반갑습니다,<br>테스트 엔지니어 <span>이원혁</span>입니다.</h1>
+      <p class="intro-copy">모빌리티·예약 플랫폼의 핵심 사용자 흐름을 검증해 왔습니다. 요구사항 초기 리뷰부터 API·로그 분석, Android 실기기 자동화까지 연결해 결함 원인을 구체화하고 반복 검증을 줄입니다. 최근에는 AI가 생성한 결과를 직접 실행·검토·보정하며 품질 자산으로 전환하고 있습니다.</p>
+      <div class="intro-links" aria-label="연락처와 외부 링크"><a href="mailto:bebebe97@naver.com">Email</a><a href="https://github.com/gm01" target="_blank" rel="noreferrer">GitHub</a><a href="https://docs.google.com/spreadsheets/d/1iKO3I4eFr_vy1LhEFofMVtKthMOBQ3AvdAj3_lp4BV8" target="_blank" rel="noreferrer">Test Cases</a></div>
+    </section>
+
+    <section class="resume-section" id="experience" aria-labelledby="experience-title">
+      <h2 id="experience-title">Work Experience.</h2>
+      <article class="company">
+        <header class="company-header"><div><h3>주식회사 디케이테크인.</h3><p>카카오모빌리티 프로젝트 외주 QA</p></div><time datetime="2020-07">2020. 07 - 현재</time></header>
+        <div class="project">
+          <header class="project-header"><h4>모빌리티 플랫폼 공통·대리 QA.</h4><time>2025. 11 - 2026. 07</time></header>
+          <div class="project-body"><div><h5>Description.</h5><p>공급자향 앱의 가입, 자격 등록, 호출·배차, 운행, 결제·정산 등 핵심 사용자 흐름을 검증하고 API·로그 기반 결함 분석과 테스트 인프라 개선을 담당했습니다.</p></div><div><h5>What I did.</h5><ul><li>요구사항과 API 명세를 분석해 정상·예외·권한·상태 전이 시나리오 설계</li><li>Swagger·Postman 직접 호출과 서버 로그 분석으로 결함 발생 구간 구체화</li><li>테스트 데이터 생성 API와 Python을 연동해 반복적인 데이터 준비 과정 자동화</li></ul></div><div><h5>Tools.</h5><p class="stack">Postman, Swagger, Python, JIRA, Server Log</p></div></div>
+        </div>
+        <div class="project">
+          <header class="project-header"><h4>모빌리티 플랫폼 공통 QA.</h4><time>2024. 11 - 2025. 11</time></header>
+          <div class="project-body"><div><h5>Description.</h5><p>대규모 개편 프로젝트에서 테스트 전략, 담당 범위, 이슈와 회귀 사이클을 관리하며 품질 검증을 리딩했습니다.</p></div><div><h5>What I did.</h5><ul><li>기획 초기 요구사항의 조건 충돌, 누락 정책과 예외 흐름 사전 검토</li><li>약 1,000건의 프로젝트 이슈를 중요도·상태에 따라 분류하고 단계별 회귀 운영</li><li>테스트케이스 약 3,000건 작성·8,000건 수행, 종료 리포트와 변경 이력 자산화</li></ul></div><div><h5>Tools.</h5><p class="stack">JIRA, Postman, Swagger, Selenium, Google Sheets</p></div></div>
+        </div>
+        <div class="project">
+          <header class="project-header"><h4>레저 예약 시스템 QA.</h4><time>2023. 07 - 2024. 11</time></header>
+          <div class="project-body"><div><h5>Description.</h5><p>신규 제휴 예약 서비스의 테스트 환경 구성부터 상품 조회, 예약, 결제, 취소·환불의 배포 전 검증까지 담당했습니다.</p></div><div><h5>What I did.</h5><ul><li>전체 사용자 흐름과 상품·재고·결제 상태별 예외를 구조화해 TC 약 2,000건 설계</li><li>제휴사 API의 요청·응답, 오류 코드, 필드 매핑과 화면 데이터 일관성 검증</li><li>약 200건 이상의 이슈와 스펙 변경 이력을 관리하고 종료 문서 자산화</li></ul></div><div><h5>Tools.</h5><p class="stack">Postman, Swagger, JIRA, Google Sheets</p></div></div>
+        </div>
+        <div class="project">
+          <header class="project-header"><h4>대리 서비스 플랫폼 QA.</h4><time>2020. 07 - 2023. 07</time></header>
+          <div class="project-body"><div><h5>Description.</h5><p>기사 가입과 자격 등록부터 호출·배차, 운행, 결제·정산까지 서비스 전반의 기능·회귀·호환성 테스트를 수행했습니다.</p></div><div><h5>What I did.</h5><ul><li>Android·iOS와 다양한 디바이스에서 네트워크 오류, 중복 요청, 앱 종료 등 운영 예외 검증</li><li>테스트케이스 1,000건 이상 작성·13,000건 이상 수행</li><li>JIRA 이슈 400건 이상 등록 경험을 축적해 이후 개편 프로젝트 리딩 기반 확보</li></ul></div><div><h5>Tools.</h5><p class="stack">JIRA, Android, iOS, Device Compatibility</p></div></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="resume-section" id="engineering" aria-labelledby="engineering-title">
+      <h2 id="engineering-title">Quality Engineering.</h2>
+      <article class="experience-card">
+        <header><div><h3>AI 활용 Android E2E 자동화.</h3><p>Mobile Test Automation</p></div><time>2026</time></header>
+        <p>Python·pytest·Appium·UiAutomator2를 사용해 실제 Android 기기에서 퀵과 대리 서비스의 핵심 사용자 흐름을 자동화했습니다.</p>
+        <h5>What I did.</h5><ul><li>퀵 주문 생성→수락→픽업→배송→서명 완료와 대리 콜 생성→수락→운행→결제→대기 복귀 자동화</li><li>두 독립 Flow 연속 실행 결과 PASS 2 / FAIL 0, 총 실행시간 약 87초 확인</li><li>HTML 리포트와 실패 스크린샷·UI XML을 수집해 실패 재현 근거 확보</li><li>세션 만료, 조건부 재로그인, Compose 클릭, 스크롤과 슬라이더 재시도 등 실기기 불안정 요소 보정</li><li>AI 생성 코드를 실제 앱 동작과 비교하며 선택자·예외 조건·안전장치를 반복 개선</li></ul>
+        <h5>Tech Stack.</h5><p class="stack">Python, pytest, Appium, UiAutomator2, Selenium, Requests, Page Object</p>
+      </article>
+      <article class="experience-card">
+        <header><div><h3>배포 지원 자동 연계 PoC.</h3><p>Process Automation Design</p></div><time>설계·검증 단계</time></header>
+        <p>Git 커밋 확인 → 샌드박스 앱 빌드 → JIRA 버저닝 → Slack 공유로 이어지는 반복 업무를 AI로 구조화하고 자동화 가능성을 검토했습니다.</p>
+        <h5>Result & Learning.</h5><ul><li>단계별 입력·출력, 실패 조건과 시스템 연동 지점을 정의</li><li>외주 계정의 저장소·CI/CD·JIRA 관리 권한 제약으로 운영 적용에는 이르지 못함</li><li>보안 정책을 우회하지 않고 실제 적용에 필요한 최소 권한과 승인 지점을 식별</li></ul>
+      </article>
+    </section>
+
+    <section class="resume-section" aria-labelledby="projects-title">
+      <h2 id="projects-title">Selected Project.</h2>
+      <article class="experience-card featured">
+        <header><div><h3>FC Online Lab.</h3><p>AI-Assisted Cross-platform Product & Quality</p></div><time>2026</time></header>
+        <p>AI 개발 도구를 활용해 Electron 데스크톱·React Native 모바일·Cloudflare Workers API로 구성된 경기 데이터 분석 서비스를 제작했습니다. 요구사항과 완료 기준을 정의하고 생성된 코드와 API 연동 결과를 직접 검토·실행·보정했습니다.</p>
+        <h5>What I did.</h5><ul><li>API 파서, 캐시, CORS, IPC 입력값, 네트워크와 계산 로직 자동화 테스트 59건 통과</li><li>타임아웃, 요청 취소, 429 응답, 재시도, 오래된 응답 반영 방지와 D1 fallback 검증</li><li>Request ID로 클라이언트·서버·외부 API 오류를 연결하고 개인정보 제외 관측 기준 문서화</li><li>개인정보 처리방침과 릴리스 체크리스트로 구현 완료와 배포 준비 상태 구분</li></ul>
+        <h5>Tech Stack.</h5><p class="stack">Electron, React, TypeScript, React Native, Cloudflare Workers, Vitest</p>
+        <p class="project-link"><a href="https://github.com/gm01/practice/tree/codex/fconline-dashboard-improvements" target="_blank" rel="noreferrer">View repository ↗</a></p>
+      </article>
+    </section>
+
+    <section class="resume-section" id="skills" aria-labelledby="skills-title">
+      <h2 id="skills-title">Skills.</h2>
+      <div class="skill-group"><h3>Test Design.</h3><ul><li>기능·회귀·탐색적·명세 기반·리스크 기반·Shift-Left 테스트</li><li>정상·예외·경계값·권한·상태 전이·사용자 흐름 기반 시나리오 설계</li></ul></div>
+      <div class="skill-group"><h3>API & Analysis.</h3><ul><li>Swagger, Postman, REST API, HTTP 요청·응답 및 연동 데이터 검증</li><li>서버 로그와 사용자 영향도를 기반으로 결함 원인과 수정 영향 범위 분석</li></ul></div>
+      <div class="skill-group"><h3>Automation.</h3><ul><li>Python, pytest, Appium, UiAutomator2, Selenium WebDriver, Page Object</li><li>테스트 데이터·인증·UI Flow 자동화와 HTML 리포트·실패 증적 관리</li></ul></div>
+      <div class="skill-group"><h3>Collaboration.</h3><ul><li>JIRA, Slack, Google Sheets 기반 이슈·우선순위·스펙 변경·잔여 리스크 관리</li><li>테스트 종료 리포트와 변경 이력을 문서화해 재사용 가능한 QA 자산으로 관리</li></ul></div>
+    </section>
+
+    <section class="resume-section compact" aria-labelledby="other-title"><h2 id="other-title">Other Experience.</h2><article class="simple-row"><div><h3>청강문화산업대학교.</h3><p>게임 QA 과정 · 졸업</p></div><time>2016. 03 - 2021. 02</time></article></section>
+    <section class="resume-section contact" aria-labelledby="contact-title"><h2 id="contact-title">Contact.</h2><p>제품 리스크를 더 일찍 발견하고 반복 검증을 더 효율적으로 만드는 일에 관심이 있습니다.</p><ul><li><a href="mailto:bebebe97@naver.com">bebebe97@naver.com</a></li><li><a href="https://github.com/gm01" target="_blank" rel="noreferrer">github.com/gm01</a></li></ul></section>
+  </main>
+  <footer class="site-footer"><span>© 2026 이원혁</span><a href="#top">Back to top ↑</a></footer>
 </body>
 </html>
