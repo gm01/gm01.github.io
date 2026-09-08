@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>모바일 자동화 사례 | 이원혁</title><meta name="description" content="인증 준비, API 테스트 주문 생성, Android 실기기 검증을 연결한 자동화 설계와 문제 해결 사례"><link rel="stylesheet" href="./styles.css"></head>
+<body>
+<header class="site-header"><a class="wordmark" href="./index.html">WONHYEOK LEE</a><nav><a href="./index.html#appium">이력서로 돌아가기</a></nav></header>
+<main class="container">
+  <section class="case-intro"><p class="kicker">QA ENGINEERING CASE STUDY · 2026</p><h1>테스트 준비부터 완료 확인까지,<br>API와 앱을 연결한 자동화.</h1><p>퀵 배송·대리 운행 / Alpha·Sandbox / Android 실기기</p><p>반복되는 로그인·주문 생성·앱 조작을 연결하고, 실패한 단계를 구분할 수 있도록 설계했습니다. AI 에이전트를 활용해 코드를 작성하고 실제 앱 실행 결과를 검토하며 보정한 업무 개선 사례입니다.</p></section>
+  <section class="case-block"><h2>검증 범위와 실행 순서</h2><p class="case-flow">인증 세션 준비 → 테스트 주문 생성 → 생성 성공 확인 → 앱 테스트 시작 → 서비스 완료 상태 확인 → 결과 리포트</p><ul><li>퀵: 주문 생성 → 수락 → 픽업 → 배송 → 직접 수령 서명 완료</li><li>대리: 콜 생성 → 수락 → 운행 → 결제 → 콜 대기 복귀</li></ul><p>두 서비스의 API 모듈·화면 동작·시나리오는 분리하고, 기기 연결과 공통 설정·리포터는 재사용했습니다.</p></section>
+  <section class="case-block"><h2>설계 판단과 해결한 문제</h2><h3>1. 인증 실패를 앱 결함과 구분</h3><p>주문 API가 HTTP 200을 반환했지만 본문에는 토큰 만료가 담긴 경우가 있었습니다. 상태 코드와 응답 내용을 함께 확인하고, 만료된 세션만 갱신한 뒤 한 번 재시도하도록 구성했습니다. 주문 생성이 성공한 이후에만 Appium을 시작해 준비 단계 실패를 앱 동작 실패로 기록하지 않게 했습니다.</p><h3>2. 화면에 보이지 않는 주문 탐색</h3><p>목록 아래의 주문은 화면 구조 정보에 나타나지 않아, 단순히 기다리는 방식으로는 찾을 수 없었습니다. 스크롤할 때마다 목록을 다시 탐색하고 서비스 종류와 출·도착지가 일치하는 대상을 선택하도록 변경했습니다.</p><h3>3. 화면 조작 이후의 상태 확인</h3><p>버튼을 누르거나 슬라이더를 움직였다는 사실만으로 다음 단계로 넘어가지 않도록, 다음 화면이나 완료 상태를 확인했습니다. 조건부 안내 팝업과 화면 전환 지연을 처리하고, 화면 동작은 Page Object로 분리했습니다.</p><h3>4. 실패를 다시 설명할 수 있는 기록</h3><p>단계별 기대 결과를 HTML 리포트에 남기고, 실패 시 스크린샷과 화면 구조 정보를 수집했습니다. 인증·데이터 생성·앱 동작 중 어느 단계에서 실패했는지 확인할 수 있도록 구성했습니다.</p></section>
+  <section class="case-block"><h2>AI 활용과 본인 역할</h2><ul><li>자동화할 정상 흐름, 단계별 기대 결과와 테스트 사전 상태 정의</li><li>AI 에이전트로 구현·수정안을 작성하고 실제 API 응답과 앱 동작으로 확인</li><li>실패 조건을 분석해 세션 갱신, 목록 탐색, 화면 대기와 최종 상태 판정을 개선</li><li>수정 후 동일 실기기에서 두 서비스 흐름을 연속 실행해 결과 확인</li></ul></section>
+  <section class="case-block"><h2>실행 결과와 적용 범위</h2><div class="outcomes"><div><strong>약 2분 단축</strong><span>본인 수동 수행과 비교한 1회 기준</span></div><div><strong>약 87초</strong><span>초기 실기기 연속 실행 기록</span></div></div><p>초기 기록은 퀵 44.50초, 대리 42.76초입니다. 이후 인증 세션 재사용·갱신을 보완한 실행 기록은 합계 96.69초이며, 인증 판정·요청 데이터·리포트 관련 단위 테스트 12건도 통과했습니다.</p><p class="case-note">시간은 해당 테스트 데이터와 기기에서의 실행 기록이며 평균값은 아닙니다. 구현 범위는 정상 주문·배송·운행 흐름이고, 실패·취소 전체 시나리오와 정기 CI 실행은 이 사례의 완료 범위에 포함하지 않습니다.</p></section>
+  <section class="case-block"><h2>사용 기술</h2><p>Python · pytest · Appium · UiAutomator2 · Selenium · Requests · Page Object</p><p><a href="./index.html#engineering">이력서의 자동화·업무 개선 경험으로 돌아가기 ↗</a></p></section>
+</main><footer class="site-footer"><span>이원혁 · QA Engineer</span><a href="./index.html">Resume ↗</a></footer>
+</body></html>
