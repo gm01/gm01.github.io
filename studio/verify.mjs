@@ -13,7 +13,7 @@ const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
 assert.equal(ids.length, new Set(ids).size, 'IDs must be unique');
 for (const [, value] of html.matchAll(/\b(?:href|src)="([^"]+)"/g)) {
   if (value.startsWith('#')) assert.ok(ids.includes(value.slice(1)), `Missing anchor: ${value}`);
-  else if (!/^(https?:|mailto:)/.test(value)) assert.ok(existsSync(resolve(folder, value)), `Missing file: ${value}`);
+  else if (!/^(https?:|mailto:)/.test(value)) assert.ok(existsSync(resolve(folder, value.split('?')[0])), `Missing file: ${value}`);
 }
 for (const [, value] of html.matchAll(/\baria-labelledby="([^"]+)"/g)) {
   for (const id of value.split(' ')) assert.ok(ids.includes(id), `Missing accessible label: ${id}`);
